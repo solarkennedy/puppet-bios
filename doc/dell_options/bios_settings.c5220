@@ -1,0 +1,111 @@
+# 
+# Default settings file, by platform.  All BIOS settings that can be changed
+# from the command line are listed here.
+#
+# The format is:  
+# setting_name, default_value, associated_token_1, associated_token_2, ... 
+#
+
+; begin: default_settings
+
+# Generic version, based on 1.0.7
+
+; platform:                   C5220
+; bios_version:               0.00
+; date_generated:             2011-09-24
+; settings_file_format_ver:   2.3
+; load_default_settings_tkn:  00d8
+
+
+## Advanced
+
+### Power Management
+
+power_management, os_control, 021f:max_performance, 0221:os_control
+
+### CPU Config
+
+active_processors_cores, all, 026e:all, 0233:1, 0232:2, 0231:4, 026f:6, 0270:8
+frequency_ratio, auto, 48c0:auto, 48c1:1
+max_CPUID_value_limit, disabled, 0168:disabled, 0169:enabled
+virtualization_tech, disabled, 014a:disabled, 014b:enabled
+turbo_mode, enabled, 01ea:disabled, 01eb:enabled
+c_states, enabled, 024c:disabled, 024b:enabled
+c1e_state, enabled, 02a2:disabled, 02a1:enabled
+execute_disable_bit, enabled, 0140:disabled, 0141:enabled
+hyperthreading_tech, enabled, 00d2:disabled, 00d1:enabled
+adjacent_cache_line_prefetch, enabled, 0171:disabled, 0172:enabled
+hardware_prefetcher, enabled, 0173:disabled, 0174:enabled
+dcu_streamer_prefetcher, enabled, 02c6:disabled, 02c5:enabled
+
+### Memory Config
+
+memory_freq, auto, 4823:auto, 4825:1066_mhz, 4826:1333_mhz
+memory_remapping, disabled, 013e:disabled, 013f:enabled
+
+### SATA Config
+
+embedded_sata_controller, ahci, 0135:off, 0137:ide, 0138:ahci, 0139:raid
+power_saving_features, enabled, 0199:disabled, 019a:enabled
+hdd_security_erase, disabled, 4830:disabled, 4831:enabled
+
+### PCI Config
+
+nic1, enabled_with_pxe, 002e:disabled, 002d:enabled_with_pxe, 006e:enabled_without_pxe, 01da:iscsi_remote_boot
+nic2, enabled_without_pxe, 00ba:disabled, 00bc:enabled_with_pxe, 00bb:enabled_without_pxe, 01db:iscsi_remote_boot
+onboard_lan_aspm, disabled, 4846:disabled, 4847:L0s, 4849:L0s_and_L1
+mezzing_slot_aspm, disabled, 484c:disabled, 484d:L0s, 484f:L0s_and_L1
+nb_sb_link_aspm, L0s_and_L1, 4852:disabled, 4853:L0s_and_L1
+intel_VT_d, disabled, 0204:disabled, 0205:enabled
+SR_IOV_support, disabled, 02ae:disabled, 02ad:enabled
+maximum_payload_size, auto, 4854:auto, 4855:128_bytes, 4856:256_bytes
+whea_support, disabled, 4857:disabled, 4858:enabled
+
+### USB Config
+
+embedded_usb_controller, enabled, 008d:disabled, 008c:enabled
+legacy_usb_support, enabled, 00fe:disabled, 00ff:enabled
+usb_port_with_bmc, enabled, 4860:disabled, 4861:enabled
+external_usb_port_1, enabled, 014e:disabled, 014f:enabled
+external_usb_port_2, enabled, 0189:disabled, 018a:enabled
+internal_usb_port, enabled, 0211:disabled, 0212:enabled
+
+## Boot
+
+### Boot Settings Config
+
+quiet_boot, enabled, 0250:disabled, 024f:enabled
+pause_on_errors, disabled, 024e:disabled, 024d:enabled
+force_pxe_boot_only, disabled, 4870:disabled, 4871:enabled
+boot_mode, bios, 022e:bios, 022d:uefi
+
+### Boot Settings Config
+
+boot_device_1, network, 4022:network, 4881:hard_disk, 4882:raid, 4883:usb, 4884:cd_dvd_rom
+boot_device_2, hard_disk, 4885:network, 4886:hard_disk, 4887:raid, 4888:usb, 4889:cd_dvd_rom
+boot_device_3, raid, 488a:network, 488b:hard_disk, 488c:raid, 488d:usb, 488e:cd_dvd_rom
+boot_device_4, usb, 488f:network, 4890:hard_disk, 4891:raid, 4892:usb, 4893:cd_dvd_rom
+boot_device_5, cd_dvd_rom, 4894:network, 4895:hard_disk, 4896:raid, 4897:usb, 4898:cd_dvd_rom
+
+## Server
+
+### Main
+
+acpi_spmi_table, enabled, 48a0:disabled, 48a1:enabled
+restore_on_ac_power_loss, power_on, 00a1:power_off, 00a3:power_on, 00a2:last_state
+power_button, enabled, 00c2:disabled, 00c1:enabled
+event_logging, enabled, 48b1:disabled, 48b2:enabled
+nmi_on_error, enabled, 48b3:disabled, 48b4:enabled
+
+### Remote Access Config
+
+remote_access, enabled, 00bf:disabled, 0178:enabled
+serial_port_for_SOL, COM2, 00c0:COM1, 00d7:COM2
+serial_port_address, 3f8_2f8, 0254:3f8_2f8, 0257:2f8_3f8
+serial_port_mode, 115200_8n1, 4033:115200_8n1, 4034:57600_8n1, 48aa:38400_8n1, 4035:19200_8n1, 4036:9600_8n1
+flow_control, none, 48ab:none, 48ac:hardware
+redirection_after_BIOS_POST, enabled, 401d:disabled, 401c:enabled
+terminal_type, ansi, 401b:ansi, 401a:vt_100, 48ae:vt_utf8
+
+
+; end: default_settings

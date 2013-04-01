@@ -1,0 +1,110 @@
+# 
+# Default settings file, by platform.  All BIOS settings that can be changed
+# from the command line are listed here.
+#
+# The format is:  
+# setting_name, default_value, associated_token_1, associated_token_2, ... 
+#
+
+; begin: default_settings
+
+# Generic version, based on 1.64
+
+; platform:                   C6100
+; bios_version:               0.00
+; date_generated:             2011-09-29
+; settings_file_format_ver:   2.3
+; load_default_settings_tkn:  00d8
+
+
+## Advanced
+
+### CPU Config
+
+virtualization_tech, disabled, 014a:disabled, 014b:enabled
+execute_disable_bit, enabled, 0140:disabled, 0141:enabled
+C1E_support, enabled, 484a:disabled, 484b:enabled
+hardware_prefetcher, enabled, 0173:disabled, 0174:enabled
+adjacent_cache_line_prefetch, disabled, 0171:disabled, 0172:enabled
+DCU_streamer_prefetcher, enabled, 4850:disabled, 4851:enabled
+data_reuse_optimization, enabled, 4852:disabled, 4853:enabled
+QPI_frequency, auto, 48c8:auto, 48c9:4.800gt, 48ca:5.866gt, 48cb:6.400gt
+hyperthreading_tech, enabled, 00d2:disabled, 00d1:enabled
+intel_vt_d, disabled, 0204:disabled, 0205:enabled
+intel_turbomode_tech, disabled, 4841:disabled, 4840:enabled
+performance_watt_select, traditional, 484d:traditional, 484c:power_optimized
+active_processor_cores, all, 026e:all, 0233:1, 0232:2
+intel_c_state_tech, enabled, 4848:disabled, 4849:enabled
+c6_state, enabled, 4810:disabled, 480f:enabled
+intel_QPI_bandwidth_priority, compute, 4854:compute, 4855:io
+
+### Memory Config
+
+CKE_power_down_slow_mode, disabled, 4860:disabled, 4861:enabled
+tRankIdle_optimized, disabled, 4862:disabled, 4863:enabled
+memory_frequency, auto, 4811:auto, 4812:force_ddr800, 4813:force_ddr1066, 4814:force_ddr1333
+memory_operating_voltage, auto, 02b8:auto, 02b7:1.35V, 02b6:1.5V
+demand_scrubbing, enabled, 482c:disabled, 482d:enabled
+NUMA_support, enabled, 01c4:disabled, 01c5:enabled
+channel_interleaving, disabled, 48e0:disabled, 48e1:enabled
+rank_interleaving, disabled, 48e2:disabled, 48e3:enabled
+
+### IDE Config
+
+sata_1_config, enhanced, 0135:disabled, 4828:compatible, 013b:enhanced
+config_sata_as, ahci, 0137:ide, 0139:raid, 0138:ahci
+sata_2_config, enhanced, 4817:disabled, 4818:enhanced
+embedded_sata_link_rate, auto, 4834:auto, 4835:1.5gbps
+hard_disk_write_protect, disabled, 48f9:disabled, 48fa:enabled
+
+### USB Config
+
+legacy_usb_support, enabled, 009c:disabled, 009b:enabled
+usb_2_0_controller_mode, hispeed, 48e4:fullspeed, 48e5:hispeed
+bios_ehci_handoff, enabled, 48e6:disabled, 48e7:enabled
+usb_mass_storage_reset_delay, 20_sec, 48e8:10_sec, 48e9:20_sec, 48ea:30_sec, 48eb:40_sec
+usb_first_dvc_emulation_type, auto, 48ec:auto, 48ed:floppy, 48ee:force_fdd, 48ef:hard_disk, 48f0:cdrom
+
+### PCI Config
+
+nic_function_support, pxe, 002e:disabled, 481b:pxe, 481c:iscsi
+nic1_option_rom, enabled, 006e:disabled, 002d:enabled
+nic2_option_rom, enabled, 00bb:disabled, 00bc:enabled
+pcie_generation, gen2, 485c:gen2, 485d:gen1
+SR_IOV_support, disabled, 4864:disabled, 4865:enabled
+onboard_video_controller, enabled, 0225:disabled, 0224:enabled
+video_enumeration, onboard, 0087:onboard, 0088:addon
+gpgpu_pci_reset, enabled, 4858:disabled, 4859:enabled
+maximum_payload_size, auto, 4866:auto, 4867:128_bytes, 4868:256_bytes
+pcie_slot_option_rom, enabled, 48f1:disabled, 48f2:enabled
+
+## Boot
+
+### Boot Settings Config
+
+quick_boot, enabled, 4032:disabled, 4031:enabled
+quiet_boot, disabled, 0250:disabled, 024f:enabled
+wait_for_f1_if_error, disabled, 024e:disabled, 024d:enabled
+pxe_boot_only, disabled, 486a:disabled, 486b:enabled
+force_usb_first, disabled, 4856:disabled, 4857:enabled
+
+## Server
+
+### Remote Access Config
+
+remote_access, disabled, 00bf:disabled, 00c0:enabled
+serial_port_number, COM1, 482a:COM1, 00d7:COM2
+serial_port_mode, 115200_8n1, 4036:9600_8n1, 4035:19200_8n1, 4034:57600_8n1, 4033:115200_8n1
+flow_control, none, 481d:none, 481e:hardware, 481f:software
+redirection_after_BIOS_POST, always, 401d:disabled, 4842:bootloader, 401c:always
+terminal_type, ansi, 401b:ansi, 401a:vt_100, 482b:vt_utf8
+vt_utf8_combo_key_support, enabled, 4820:disabled, 4821:enabled
+
+power_management, node_management, 021f:max_perf, 0221:OS_control_EIST, 0222:active_power_controller, 0223:node_management
+IOAT2, disabled, 01d0:disabled, 01cf:enabled
+wake_on_ring_function, disabled, 48f3:disabled, 48f4:enabled
+ipmi_detection, enabled, 4843:disabled, 4844:enabled
+whea_support, disabled, 4826:disabled, 4827:enabled
+restore_on_ac_power_loss, power_on, 4845:power_off, 4846:power_on, 4847:last_state
+
+; end: default_settings

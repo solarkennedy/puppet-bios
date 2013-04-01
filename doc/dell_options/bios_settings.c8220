@@ -1,0 +1,166 @@
+#
+# default settings file, by platform, all bios settings that can be changed
+# from the command line are listed here.
+#
+# the format is:
+# setting_name, default_value, associated_token_1, associated_token_2, .
+#
+
+; begin: default_settings
+
+; platform                            : na                                     
+; bios_version                        : 1.0.14                              
+; date_generated                      : 20120424
+; setting_file_format_ver             : 0.7
+; load_default_setting_tkn            : 00d8
+; save_customized_default_setting_tkn : 48da
+; load_customized_default_setting_tkn : 48d8
+
+## advanced
+
+### power management
+
+power_management, os_control, 021f:maximum_performance, 0221:os_control, 4800:node_manager
+cpu_power_capping, pstate_0, 4802:pstate_0, 4803:pstate_1, 4804:pstate_2, 4805:pstate_3, 4806:pstate_4
+energy_efficient_policy, balanced, 48d0:performance, 48d1:balanced, 48d2:low_power
+chassis_level_capping, disabled, 4910:disabled, 4911:enabled
+sled_level_policy, chassis_level, 4912:chassis_level, 4913:throttling, 4914:power_off,4915:do_nothing 
+chassis_level_policy, throttling, 4916:throttling, 4917:power_off
+
+
+
+### cpu configuration
+
+active_processor_cores, all_cores, 026e:all_cores, 0233:1, 0232:2, 0231:4, 026f:6, 0270:8, 0271:10, 0272:12
+frequency_ratio, auto, 48c0:auto, 48c1:1, 48c2:2, 48c3:3
+max_cpuid_value_limit, disabled, 0168:disabled, 0169:enabled
+virtualization_technology, disabled, 014a:disabled, 014b:enabled
+qpi_frequency, auto, 48c8:auto, 48cb:6.40gt_per_sec, 48cc:7.20gt_per_sec
+turbo_mode, enabled, 01ea:disabled, 01eb:enabled
+cstates, enabled, 024c:disabled, 024b:enabled
+c1e_state, enabled, 02a2:disabled, 02a1:enabled
+c6_state, enabled, 480a:disabled, 480b:enabled
+c7_state, enabled, 480e:disabled, 480f:enabled
+xd_bit_capability, enabled, 0140:disabled, 0141:enabled
+direct_cache_access, enabled, 48d3:disabled, 48d4:enabled
+hyperthreading_technology, enabled, 00d2:disabled, 00d1:enabled
+
+### cpu configuration
+
+### prefetch configuration
+
+adjacent_cache_line_prefetch, enabled, 0171:disabled, 0172:enabled
+hardware_prefetcher, enabled, 0173:disabled, 0174:enabled
+dcu_streamer_prefetcher, enabled, 02c6:disabled, 02c5:enabled
+dcu_ip_prefetcher, enabled, 02cf:disabled, 02ce:enabled
+
+### memory configuration
+
+memory_frequency, auto, 4823:auto, 4824:800_mhz, 4825:1066_mhz, 4826:1333_mhz, 4827:1600_mhz
+memory_turbo_mode, disabled, 4820:disabled, 4821:enabled
+memory_throttling_mode, enabled, 4828:disabled, 4829:enabled
+memory_operating_mode, optimizer_mode, 025d:optimizer_mode, 025e:spare_mode, 025f:mirror_mode, 0260:advanced_ecc_mode
+demand_scrubbing, enabled, 482c:disabled, 482d:enabled 
+patrol_scrubbing, enabled, 482e:disabled, 482f:enabled 
+memory_operating_voltage, auto, 02b8:auto, 02b6:1.50_volts, 02b7:1.35_volts
+numa_support, enabled, 01c4:disabled, 01c5:enabled
+
+### sata configuration
+
+embedded_sata_controller, ahci, 0135:off, 0137:ide, 0138:ahci, 0139:raid
+embedded_sata_link_rate, auto, 4834:auto, 4835:1.5_gbps, 4836:3.0_gbps
+embedded_sas_controller, enabled, 016f:disabled, 0170:enabled
+sata_port0, auto, 0117:off, 0118:auto
+sata_port1, auto, 0119:off, 011a:auto
+sata_port2, auto, 011b:off, 011c:auto
+sata_port3, auto, 011d:off, 011e:auto
+sata_port4, auto, 011f:off, 0120:auto
+sata_port5, auto, 0121:off, 0122:auto
+power_saving_features, enable, 0199:disabled, 019a:enabled
+hdd_security_erase, disabled, 4830:disabled, 4831:enabled
+
+### pci configuration
+
+nic_enumeration, onboard, 4859:onboard, 485a:addin
+pcie_generation, gen3, 485d:gen1, 485c:gen2, 485b:gen3
+vt_for_direct_io, disabled, 0204:disabled, 0205:enabled
+sriov_global_enable, disabled, 02ae:disabled, 02ad:enabled
+ioat_dma_engine, disabled, 01d0:disabled, 01cf:enabled
+maximum_payload_size, auto, 4854:auto, 4855:128_bytes, 4856:256_bytes
+embedded_video_controller, enabled, 0225:disabled, 0224:enabled
+video_enumeration, onboard, 0087:onboard, 0088:addin
+whea_support, disabled, 4857:disabled, 4858:enabled
+reboot_on_wol, disabled, 485e:disabled, 485f:enabled
+
+### pci configuration
+
+### embedded network devices
+
+embedded_nic1, enabled_with_pxe, 002e:disabled, 006e:enabled_without_pxe, 002d:enabled_with_pxe, 01da:iscsi_remote_boot
+embedded_nic2, enabled_without_pxe, 00ba:disabled, 00bb:enabled_without_pxe, 00bc:enabled_with_pxe, 01db:iscsi_remote_boot
+
+### pci configuration
+
+### active state power management configuration
+
+pcie_slot_aspm, disabled, 4840:disabled, 4841:l0s, 4842:l1, 4843:l0sl1, 4844:l0s_downstream, 4845:l0s_downstream_and_l1
+onboard_lan_aspm, disabled, 4846:disabled, 4847:l0s, 4848:l1, 4849:l0sl1, 484a:l0s_downstream, 484b:l0s_downstream_and_l1
+mezzanine_slot_aspm, disabled, 484c:disabled, 484d:l0s, 484e:l1, 484f:l0sl1, 4850:l0s_downstream, 4851:l0s_downstream_and_l1
+nbsb_link_aspm, l1, 4852:disabled, 4853:l1
+
+### pci configuration
+
+### pci slot configuration
+
+
+### usb configuration
+
+embedded_usb_controller, enabled, 008d:disabled, 008c:enabled
+usb_port_with_bmc, enabled, 4860:disabled, 4861:enabled
+external_usb_port1, enabled, 014e:disabled, 014f:enabled
+external_usb_port2, enabled, 0189:disabled, 018a:enabled
+internal_usb_connector, disabled, 0211:disabled, 0212:enabled
+
+### debug mode
+
+spread_spectrum, disabled, 4918:disabled, 4919:enabled
+
+## server
+
+acpi_spmi_table, enabled, 48a0:disabled, 48a1:enabled
+restore_on_ac_power_loss, power_on, 00a1:power_off, 00a3:power_on, 00a2:last_state
+power_button, enabled, 00c2:disabled, 00c1:enabled 
+event_logging, enabled, 48b1:disabled, 48b2:enabled
+nmi_on_error, enabled, 48b3:disabled, 48b4:enabled
+
+### set bmc lan configuration
+
+ipv6_mode, disabled, 48a6:disabled, 48a7:enabled
+ipv6_autoconfig, enabled, 48a8:disabled, 48a9:enabled
+
+### remote access configuration
+
+remote_access, enabled, 00bf:disabled, 0178:enabled
+serial_port_number, com2_as_sol, 00c0:com1, 00d7:com2_as_sol
+serial_port_address, 3f8h_2f8h, 0254:3f8h_2f8h, 0257:2f8h_3f8h
+serial_port_mode, 115200_8n1, 4033:115200_8n1, 4034:57600_8n1, 48aa:38400_8n1, 4035:19200_8n1, 4036:9600_8n1
+flow_control, none, 48ab:none, 48ad:software
+redirection_after_bios_post, always, 401d:disabled, 401c:always
+terminal_type, ansi, 401a:vt100, 48ae:vtutf8, 401b:ansi
+vtutf8_combo_key_support, enabled, 48af:disabled, 48b0:enabled
+
+## boot
+
+quiet_boot, enabled, 0250:disabled, 024f:enabled
+pause_on_errors, disabled, 024e:disabled, 024d:enabled
+force_pxe_boot_only, disabled, 4870:disabled, 4871:enabled
+boot_mode, bios, 022e:bios, 022d:uefi
+
+boot_device_1, network, 4022:network, 4881:hard_disk, 4882:raid, 4883:usb, 4884:cd_dvd_rom
+boot_device_2, hard_disk, 4885:network, 4886:hard_disk, 4887:raid, 4888:usb, 4889:cd_dvd_rom
+boot_device_3, raid, 488a:network, 488b:hard_disk, 488c:raid, 488d:usb, 488e:cd_dvd_rom
+boot_device_4, usb, 488f:network, 4890:hard_disk, 4891:raid, 4892:usb, 4893:cd_dvd_rom
+boot_device_5, cd_dvd_rom, 4894:network, 4895:hard_disk, 4896:raid, 4897:usb, 4898:cd_dvd_rom
+
+
+; end: default_settings

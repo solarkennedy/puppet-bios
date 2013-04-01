@@ -1,0 +1,109 @@
+# 
+# Default settings file, by platform.  All BIOS settings that can be changed
+# from the command line are listed here.
+#
+# The format is:  
+# setting_name, default_value, associated_token_1, associated_token_2, ... 
+#
+
+; begin: default_settings
+
+; platform:                   C6145
+; bios_version:               2.6.0
+; date_generated:             2012-08-16
+; settings_file_format_ver:   2.3
+; load_default_settings_tkn:  00d8
+
+
+## Advanced
+
+### CPU Config
+
+power_management, max_performance, 021f:max_performance, 0221:os_control, 0222:apml
+cpu_power_capping, p_state_0, 4866:p_state_0, 4867:p_state_1, 4868:p_state_2, 4869:p_state_3, 486a:p_state_4
+secure_virtual_machine_mode, enabled, 4859:disabled, 4858:enabled
+c1e_support, enabled, 02a2:disabled, 02a1:enabled
+cstate_mode, c6, 50a4:disabled, 50a5:c6
+cpb_mode, disabled, 50a6:disabled, 50a7:auto
+cpu_downcore_mode, auto, 0273:auto, 026e:max_core_level, 0232:2_cores, 0231:4_cores, 026f:6_cores, 0270:8_cores, 0271:10_cores, 0272:12_cores
+cpu_downcore_mode_only_fam15, all, 0273:all, 50a0:2_cores, 50a1:4_cores, 50a2:8_cores, 50a3:12_cores
+acpi_srat_table, enabled, 01c4:disabled, 01c5:enabled
+dram_prefetcher, enabled, 48b9:disabled, 48ba:enabled
+hardware_prefetcher, enabled, 0173:disabled, 0174:enabled
+software_prefetcher, enabled, 48bd:disabled, 48be:enabled
+iommu, disabled, 4856:disabled, 4857:enabled
+L3_power_control, enabled, 4877:disabled, 4878:enabled
+
+### Memory Config
+
+cs_sparing_enable, disabled, 00ca:disabled, 00cb:enabled
+memory_operating_voltage, auto, 02b8:auto, 02b7:1.35v, 02b6:1.5v
+
+### IDE Config
+
+onchip_sata_channel, enabled, 0135:disabled, 013b:enabled
+onchip_sata_type, native_ide, 0137:native_ide, 0139:raid, 0138:ahci, 4832:amd_ahci
+sata_ide_combined_mode, enabled, 5097:disabled, 5098:enabled
+power_saving_features, disabled, 4891:disabled, 4892:enabled
+sata_ide_ports_auto_clk_ctrl, disabled, 4873:disabled, 4874:enabled
+sata_ahci_ports_auto_clk_ctrl, disabled, 4871:disabled, 4872:enabled
+
+### USB Config
+
+legacy_usb_support, enabled, 009c:disabled, 009b:enabled
+usb_2_controller_mode, hispeed, 485e:fullspeed, 485f:hispeed
+bios_ehci_handoff, enabled, 4861:disabled, 4860:enabled
+
+### PCI Config
+
+nic_function_support, pxe, 481b:pxe, 481c:iscsi, 002e:disabled
+nic1_option_rom, enabled, 006e:disabled, 002d:enabled
+nic2_option_rom, enabled, 00bb:disabled, 00bc:enabled
+onboard_vga_device, enabled, 0225:disabled, 0224:enabled
+video_enumeration, onboard, 0087:onboard, 0088:addon
+pci_reset_command, enabled, 5104:disabled, 5103:enabled
+pcie_slot_aspm, disabled, 5001:disabled, 5002:L0s, 5003:L1, 5004:L0s_and_L1
+onboard_lan_aspm, disabled, 5021:disabled, 5022:L0s, 5023:L1, 5024:L0s_and_L1
+mezzing_slot_aspm, disabled, 5091:disabled, 5092:L0s, 5093:L1, 5094:L0s_and_L1
+nb_sb_link_aspm, L1, 4883:disabled, 4884:L1
+
+### HyperTransport Config
+
+coherent_ht_link_speed, ht3, 4887:ht1, 4888:ht3
+non_coherent_ht_link_speed, ht3_2600mhz, 48a2:ht3_1200mhz, 48a4:ht3_2000mhz, 48a5:ht3_2600mhz
+non_coherent_ht_link_width, 16_bits, 48a6:8_bits, 48a7:16_bits
+
+### IO Virtualization
+
+SR_IOV_support, disabled, 02ae:disabled, 02ad:enabled
+
+## Boot
+
+### Boot Settings Config
+
+quick_boot, enabled, 4032:disabled, 4031:enabled
+quiet_boot, enabled, 0250:disabled, 024f:enabled
+wait_for_f1_if_error, disabled, 024e:disabled, 024d:enabled
+force_pxe_first, disabled, 4023:disabled, 4022:enabled
+force_pxe_boot_only, disabled, 4816:disabled, 4817:enabled
+force_usb_first, disabled, 4840:disabled, 4841:enabled
+
+## Server
+
+### Remote Access Config
+
+remote_access, disabled, 00bf:disabled, 00c0:enabled
+serial_port_number, COM1, 482a:COM1, 00d7:COM2
+serial_port_mode, 115200_8n1, 4036:9600_8n1, 4035:19200_8n1, 4034:57600_8n1, 4033:115200_8n1
+flow_control, none, 481d:none, 481e:hardware, 481f:software
+redirection_after_BIOS_POST, always, 401d:disabled, 4842:bootloader, 401c:always
+terminal_type, ansi, 401b:ansi, 401a:vt_100, 482b:vt_utf8
+vt_utf8_combo_key_support, enabled, 4820:disabled, 4821:enabled
+
+
+whea_support, disabled, 4826:disabled, 4827:enabled
+ipmi_detection, enabled, 4843:disabled, 4844:enabled
+restore_on_ac_power_loss, power_off, 00a1:power_off, 00a3:power_on, 00a2:last_state
+
+
+; end: default_settings

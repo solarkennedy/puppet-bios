@@ -1,0 +1,79 @@
+# 
+# Default settings file, by platform.  All BIOS settings that can be changed
+# from the command line are listed here.
+#
+# The format is:  
+# setting_name, default_value, associated_token_1, associated_token_2, ... 
+#
+
+; begin: default_settings
+
+# Generic version, based on 1.0.2
+
+; platform:                   C5125
+; bios_version:               0.00
+; date_generated:             2011-09-23
+; settings_file_format_ver:   2.3
+#; load_default_settings_tkn:  00d8
+
+
+## Advanced
+
+### CPU Config
+
+secure_virtual_machine_mode, enabled, 4854:disabled, 4855:enabled
+power_now, enabled, 4856:disabled, 4857:enabled
+power_capping, p_state_0, 4860:p_state_0, 4861:p_state_1, 4862:p_state_2, 4863:p_state_3
+L3_power_controller, enabled, 4887:disabled, 4888:enabled
+non_coherent_ht_link_speed, 2000mhz, 48a0:800mhz, 48a4:2000mhz
+
+### SATA Config
+
+onchip_sata_type, ahci, 0137:native_ide, 0138:ahci
+power_saving_features, disabled, 4891:disabled, 4892:enabled
+
+### PCI Config
+
+iscsi_remote_boot, disabled, 4842:disabled, 4843:enabled
+nic1_82576, enabled_with_pxe, 002e:disabled, 002d:enabled_with_pxe, 006e:enabled_without_pxe
+nic2_82576, enabled_with_pxe, 00ba:disabled, 00bc:enabled_with_pxe, 00bb:enabled_without_pxe
+iommu, disabled, 48b7:disabled, 48b8:enabled
+onboard_lan_aspm, disabled, 5021:disabled, 5022:L0s, 5023:L1, 5024:L0s_and_L1, 5025:L0s_downstream, 5026:L0s_downstream_and_L1
+nb_sb_link_aspm, L1, 4883:disabled, 4884:L1
+
+### USB Config
+
+legacy_usb_support, enabled, 009c:disabled, 009b:enabled
+usb_port_0_front_0, enabled, 4893:disabled, 4894:enabled
+usb_port_1_front_1, enabled, 4895:disabled, 4896:enabled
+usb_port_2_bmc, enabled, 4897:disabled, 4898:enabled
+usb_port_3_ssd, enabled, 4899:disabled, 4900:enabled
+
+## Boot
+
+### Boot Settings Config
+
+quick_boot, enabled, 4800:disabled, 4801:enabled
+quiet_boot, enabled, 0250:disabled, 024f:enabled
+wait_for_f1_if_error, disabled, 024e:disabled, 024d:enabled
+force_pxe_first, enabled, 4023:disabled, 4022:enabled
+force_pxe_boot_only, disabled, 4816:disabled, 4817:enabled
+force_usb_first, disabled, 4840:disabled, 4841:enabled
+
+## Server
+
+### Main
+
+restore_on_ac_power_loss, power_on, 00A1:power_off, 00A3:power_on, 00A2:last_state
+event_logging, enabled, 48b0:disabled, 48b1:enabled
+
+### Remote Access Config
+
+serial_port_mode, 115200_8n1, 4033:115200_8n1, 4034:57600_8n1, 4037:38400_8n1, 4035:19200_8n1, 4036:9600_8n1
+flow_control, none, 4838:none, 4839:hardware, 483a:software
+redirection_after_BIOS_POST, enabled, 401d:disabled, 401c:enabled
+terminal_type, ansi, 401b:ansi, 401a:vt_100, 4019:vt_utf8
+vt_utf8_combo_key_support, enabled, 5123:disabled, 5124:enabled
+
+
+; end: default_settings

@@ -1,0 +1,99 @@
+# 
+# Default settings file, by platform.  All BIOS settings that can be changed
+# from the command line are listed here.
+#
+# The format is:  
+# setting_name, default_value, associated_token_1, associated_token_2, ... 
+#
+
+; begin: default_settings
+
+# Generic version, based on 3B20
+
+; platform:                   C2100
+; bios_version:               0.00
+; date_generated:             2011-08-05
+; settings_file_format_ver:   2.3
+#; load_default_settings_tkn:  
+
+
+## Advanced
+
+### CPU Config
+
+hardware_prefetcher, enabled, 0173:disabled, 0174:enabled
+adjacent_cache_line_prefetch, enabled, 0171:disabled, 0172:enabled
+L1_data_prefetcher, enabled, 4848:disabled, 4849:enabled
+data_reuse_optimization, enabled, 4846:disabled, 4847:enabled
+intel_QPI_bandwidth_priority, compute, 484a:compute, 484b:io
+max_CPUID_value_limit, disabled, 0168:disabled, 0169:enabled
+virtualization_tech, enabled, 014a:disabled, 014b:enabled
+execute_disable_bit, enabled, 0140:disabled, 0141:enabled
+hyperthreading_tech, enabled, 4828:disabled, 4827:enabled
+active_processor_cores, all, 026e:all, 0233:1, 0232:2
+intel_speedstep_tech, enabled_for_os, 0148:disabled, 0149:enabled_for_os, 0150:enabled_for_dapc
+intel_turbomode_tech, enabled, 4829:disabled, 482a:enabled
+intel_c_state_tech, enabled, 482b:disabled, 482c:enabled
+c3_state, disabled, 482d:disabled, 482e:acpi_c2, 482f:acpi_c3
+c6_state, enabled, 4830:disabled, 4831:enabled
+NUMA_support, disabled, 4832:disabled, 4833:enabled, 4834:numa_for_sles11
+
+### Memory Config
+
+memory_overclock, disabled, 4818:disabled, 4819:enabled
+memory_frequency, auto, 481a:auto, 481b:800mhz, 481c:1066mhz, 481d:1333mhz
+memory_mode, independent, 481e:independent, 481f:channel_mirroring, 4820:lockstep
+memory_operating_voltage, 1.35v, 02b7:1.35v, 02b6:1.5v
+throttling_closed_loop, enabled, 4821:disabled, 4822:enabled
+throttling_open_loop, enabled, 4823:disabled, 4824:enabled
+
+### IDE Config
+
+sata_configuration, enhanced, 4835:disabled, 4836:compatible, 4837:enhanced
+configure_sata_as, ide, 0137:ide, 0139:raid, 0138:ahci
+
+### USB Config
+
+usb_2.0_controller, enabled, 008d:disabled, 008c:enabled
+
+### PCI Config
+
+maximum_payload_size, auto, 484c:auto, 484d:128_bytes, 484e:256_bytes
+iscsi_remote_boot, disabled, 4842:disabled, 4843:enabled
+nic1_kawela, enabled_with_pxe, 002e:disabled, 002d:enabled_with_pxe, 006e:enabled_without_pxe, 483b:iscsi_remote_boot
+nic2_kawela, enabled_with_pxe, 00BA:disabled, 00bc:enabled_with_pxe, 00bb:enabled_without_pxe, 483c:iscsi_remote_boot
+pci_e_option_ROM, enabled, 480a:disabled, 480b:enabled
+pci_e_connect_option_ROM, enabled, 480c:disabled, 480d:enabled
+onboard_vga_device, enabled, 4844:disabled, 4845:enabled
+crystal_beach_dma, disabled, 01d0:disabled, 01cf:enabled
+intel_VT_d, disabled, 4802:disabled, 4803:enabled
+SR_IOV_supported, disabled, 4804:disabled, 4805:enabled
+active_state_power_management, disabled, 4806:disabled, 4807:enabled
+ME_support, enabled, 4808:disabled, 4809:enabled
+
+## Boot
+
+### Boot Settings Config
+
+quick_boot, enabled, 4800:disabled, 4801:enabled
+quiet_boot, enabled, 0250:disabled, 024f:enabled
+wait_for_f1_if_error, disabled, 024e:disabled, 024d:enabled
+force_pxe_first, enabled, 4023:disabled, 4022:enabled
+force_pxe_boot_only, disabled, 4816:disabled, 4817:enabled
+lan_boot_priority, disabled, 483d:disabled, 483e:enabled
+force_usb_first, disabled, 4840:disabled, 4841:enabled
+
+## Server
+
+### Main
+
+restore_on_ac_power_loss, power_on, 00A1:power_off, 00A3:power_on, 00A2:last_state
+
+### Remote Access Config
+
+serial_port_mode, 115200_8n1, 4033:115200_8n1, 4034:57600_8n1, 4037:38400_8n1, 4035:19200_8n1, 4036:9600_8n1
+flow_control, none, 4838:none, 4839:hardware, 483a:software
+redirection_after_BIOS_POST, enabled, 401d:disabled, 401c:enabled
+terminal_type, ansi, 401b:ansi, 401a:vt_100, 4019:vt_utf8
+
+; end: default_settings

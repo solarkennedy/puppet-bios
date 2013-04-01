@@ -1,0 +1,108 @@
+# 
+# Default settings file, by platform.  All BIOS settings that can be changed
+# from the command line are listed here.
+#
+# The format is:  
+# setting_name, default_value, associated_token_1, associated_token_2, ... 
+#
+
+; begin: default_settings
+
+# Generic version, based on 1.7.6
+
+; platform:                   C6105
+; bios_version:               0.00
+; date_generated:             2011-09-17
+; settings_file_format_ver:   2.3
+; load_default_settings_tkn:  00d8
+
+
+## Advanced
+
+### CPU Config
+
+power_management, os_control, 48b4:max_perf, 48b5:os_control, 48b6:apml
+cpu_power_capping, p_state_0, 4860:p_state_0, 4861:p_state_1, 4862:p_state_2, 4863:p_state_3, 4864:p_state_4
+gart_error_report, disabled, 4850:disabled, 4851:enabled
+secure_virtual_machine_mode, enabled, 4854:disabled, 4855:enabled
+iommu, disabled, 48b7:disabled, 48b8:enabled
+sr_iov_supported, disabled, 4804:disabled, 4805:enabled
+acpi_srat_table, enabled, 4858:disabled, 4859:enabled
+L3_power_controller, enabled, 4887:disabled, 4888:enabled
+prob_filter_mode, auto, 5121:auto, 5122:disable
+dram_prefetcher, enabled, 48b9:disabled, 48ba:enabled
+hardware_prefetcher, enabled, 48bb:disabled, 48bc:enabled
+hw_prefetch_training_on_sw, enabled, 48bd:disabled, 48be:enabled
+
+### Memory Config
+
+cs_sparing_enable, enabled, 5125:disabled, 5126:enabled
+memory_remap_3gb_4gb, disabled, 48bf:disabled, 48c0:enabled
+dram_timing_config, auto, 48c2:auto, 48c3:manual
+memory_operating_voltage, auto, 02b8:auto, 02b7:1.35v, 02b6:1.5v
+
+### SATA Config
+
+onchip_sata_channel, enabled, 4865:disabled, 4866:enabled
+onchip_sata_type, native_ide, 0137:native_ide, 48c1:ms_ahci, 0139:amd_ahci, 0138:ide_amd_ahci
+power_saving_features, disabled, 4891:disabled, 4892:enabled
+sata_ahci_ports_auto_clk_ctrl, enabled, 4871:disabled, 4872:enabled
+sata_ide_ports_auto_clk_ctrl, enabled, 4873:disabled, 4874:enabled
+sata_smbus_interface, disabled, 4875:disabled, 4876:enabled
+
+### HyperTransport Config
+
+coherent_ht_link_speed, ht3, 4877:ht1, 4878:ht3
+non_coherent_ht_link_speed, ht3_2600mhz, 48a0:ht1_800mhz, 48a1:ht1_1000mhz, 48a2:ht3_1200mhz, 48a3:ht3_1600mhz, 48a4:ht3_2000mhz, 48a5:ht3_2600mhz
+non_coherent_ht_link_width, 16_bits, 48a6:8_bits, 48a7:16_bits
+second_ht_link, enabled, 4881:disabled, 4882:enabled
+
+### PCI Config
+
+iscsi_remote_boot, disabled, 4842:disabled, 4843:enabled
+nic1_82576eb, enabled_with_pxe, 002e:disabled, 002d:enabled_with_pxe, 006e:enabled_without_pxe
+nic2_82576eb, enabled_with_pxe, 00ba:disabled, 00bc:enabled_with_pxe, 00bb:enabled_without_pxe
+embedded_video_controller, enabled, 0225:disabled, 0224:enabled
+pcie_slot_aspm, disabled, 5001:disabled, 5002:L0s, 5003:L1, 5004:L0s_and_L1, 5005:L0s_downstream, 5006:L0s_downstream_and_L1
+onboard_lan_aspm, disabled, 5021:disabled, 5022:L0s, 5023:L1, 5024:L0s_and_L1, 5025:L0s_downstream, 5026:L0s_downstream_and_L1
+mezzing_slot_aspm, disabled, 5091:disabled, 5092:L0s, 5093:L1, 5094:L0s_and_L1, 5095:L0s_downstream, 5096:L0s_downstream_and_L1
+nb_sb_link_aspm, L1, 4883:disabled, 4884:L1
+
+### USB Config
+
+legacy_usb_support, enabled, 00fe:disabled, 00ff:enabled
+usb_port_1_bmc, enabled, 4893:disabled, 4894:enabled
+usb_port_5_rear_down, enabled, 4895:disabled, 4896:enabled
+usb_port_6_rear_up, enabled, 4897:disabled, 4898:enabled
+usb_port_10_internal, enabled, 4899:disabled, 4900:enabled
+
+## Boot
+
+### Boot Settings Config
+
+quick_boot, enabled, 4800:disabled, 4801:enabled
+quiet_boot, enabled, 0250:disabled, 024f:enabled
+wait_for_f1_if_error, disabled, 024e:disabled, 024d:enabled
+force_pxe_first, enabled, 4023:disabled, 4022:enabled
+force_pxe_boot_only, disabled, 4816:disabled, 4817:enabled
+force_usb_first, disabled, 4840:disabled, 4841:enabled
+
+## Server
+
+### Main
+
+restore_on_ac_power_loss, power_on, 00A1:power_off, 00A3:power_on, 00A2:last_state
+event_logging, enabled, 48b0:disabled, 48b1:enabled
+nmi_on_error, disabled, 48b2:disabled, 48b3:enabled
+
+### Remote Access Config
+
+#serial_port, com2, 00c0:com1, 00d7:com2
+serial_port_mode, 115200_8n1, 4033:115200_8n1, 4034:57600_8n1, 4037:38400_8n1, 4035:19200_8n1, 4036:9600_8n1
+flow_control, none, 4838:none, 4839:hardware, 483a:software
+redirection_after_BIOS_POST, enabled, 401d:disabled, 401c:enabled
+terminal_type, ansi, 401b:ansi, 401a:vt_100, 4019:vt_utf8
+vt_utf8_combo_key_support, enabled, 5123:disabled, 5124:enabled
+
+
+; end: default_settings
