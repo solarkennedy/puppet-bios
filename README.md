@@ -22,13 +22,35 @@ it all together.
 
 Configuration
 === 
+As long as you have the tool installed in the default path, there shouldn't 
+need to be any configuration. It sets up a defined type that you can use 
+over and over for each bios setting you need.
 
 Examples
 === 
 ```
-class { "bios::setting::turbo": enable => true }
+# Easy to set on a dell
+bios::setting {'turbo_mode': value => 'disabled' }
 
-class { "bios::setting::fan_pwm_offset": offset => '60' }
+# Intel requires some more hand holding with turbo. You set 1/0 and expect Enabled/Disabled..
+bios::setting {'Intel(R) Turbo Boost Technology': value => '0', expect => 'Disabled', section => 'Processor Configuration' }
+
+# Set fan speed on intel:
+bios::setting {'Fan PWM Offset': value => '100', section => 'System Acoustic and Performance Configuration' }
+
+# Disabled Cstates on dell:
+bios::setting {'c_states': value => 'disabled' }
+
 ```
 
+What?
+===
+Where did I get these magic words? How do I know what section to use?
+How do I know what valid inputs are for "value" and when to "expect" something
+different?
 
+I don't have a good answer. You can look in the docs folder for some example
+outputs of these commands. At first I attempted to have puppet validate inputs
+to abstract over some of this, but there are just so many possible combinations
+of platform/bios revision/hardware/etc. It is much more sane to let the tool
+itself validate your inputs. (the tool is the single point of truth)
