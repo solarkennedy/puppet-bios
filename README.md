@@ -54,3 +54,15 @@ outputs of these commands. At first I attempted to have puppet validate inputs
 to abstract over some of this, but there are just so many possible combinations
 of platform/bios revision/hardware/etc. It is much more sane to let the tool
 itself validate your inputs. (the tool is the single point of truth)
+
+License
+=======
+
+
+Contact
+=======
+
+
+Support
+=======
+
