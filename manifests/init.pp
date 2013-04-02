@@ -1,15 +1,17 @@
+# Determine the hardware we are on is on the list of supported platforms
+# If it isn't, that doesn't mean it won't work.... 
+
 class bios {
   case $boardmanufacturer {
     'Intel Corporation','Intel','Intel Corp.': {
       case $boardproductname {
       	'S5520UR',
       	'S5400SF',
-      	'S2600GZ',
-	: { include bios::intel $syscfg_command='/usr/local/sbin/syscfg' }
-      	default:   { notify{ "I don't know how to handle $boardproductname on an $boardmanufacturer platform yet":} }
+      	'S2600GZ': { $make='Intel' }
+      	default:   { fail("I don't know if $boardproductname on an $boardmanufacturer works.") }
       } # End case boardproductname
     }
-    'Dell Inc.': {
+    'Dell Inc.','Dell': {
       case $productname {
         'PowerEdge C1100',
         'PowerEdge C2100',
@@ -19,9 +21,8 @@ class bios {
         'PowerEdge C6105',
         'PowerEdge C6145',
         'PowerEdge C6220',
-        'PowerEdge C8220', }
-         : { include bios::dell $setupbios_command='cd /usr/local/setupbios && /usr/local/setupbios/setupbios' }
-      	default:   { notify{ "I don't know how to handle $boardproductname on an $boardmanufacturer platform yet":} }
+        'PowerEdge C8220': { $make='Dell' }
+      	default:   { fail("I don't know if $boardproductname on an $boardmanufacturer works.") }
       } # End case boardproductname
     }
     default: { notify { "I don't know how to handle $boardmanufacturer bios yet.": } }
