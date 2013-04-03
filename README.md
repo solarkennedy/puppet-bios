@@ -1,12 +1,10 @@
-Bios 
-===
-A puppet module for configuring bios settings
+Puppet-Bios 
+----------
+A puppet module for configuring bios settings. 
 
-Installation
-=== 
 
 Requirements / Supported Platforms
-=== 
+----------- 
 Not all hardware platforms can have their bios changed in a programmatic way.
 The sad truth is that **most** platforms require a warm body to change bios 
 settings. You are in luck though if you have something like:
@@ -21,13 +19,13 @@ for /usr/bin and use [fpm](https://github.com/jordansissel/fpm) to package
 it all together.
 
 Configuration
-=== 
+----------- 
 As long as you have the tool installed in the default path, there shouldn't 
 need to be any configuration. It sets up a defined type that you can use 
 over and over for each bios setting you need.
 
 Examples
-=== 
+--------
 ```
 # Easy to set on a dell
 bios::setting {'turbo_mode': value => 'disabled' }
@@ -44,7 +42,7 @@ bios::setting {'c_states': value => 'disabled' }
 ```
 
 What?
-===
+-----
 Where did I get these magic words? How do I know what section to use?
 How do I know what valid inputs are for "value" and when to "expect" something
 different?
@@ -56,13 +54,19 @@ of platform/bios revision/hardware/etc. It is much more sane to let the tool
 itself validate your inputs. (the tool is the single point of truth)
 
 License
-=======
+-----------
+icensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 Contact
-=======
-
-
-Support
-=======
-
+-------
+Kyle Anderson <kyle@xkyle.com>
