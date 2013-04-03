@@ -26,20 +26,18 @@ over and over for each bios setting you need.
 
 Examples
 --------
-```
-# Easy to set on a dell
-bios::setting {'turbo_mode': value => 'disabled' }
+     # Easy to set on a dell
+     bios::setting {'turbo_mode': value => 'disabled' }
+     
+     # Intel requires some more hand holding with turbo. You set 1/0 and expect Enabled/Disabled..
+     bios::setting {'Intel(R) Turbo Boost Technology': value => '0', expect => 'Disabled', section => 'Processor Configuration' }
+     
+     # Set fan speed on intel:
+     bios::setting {'Fan PWM Offset': value => '100', section => 'System Acoustic and Performance Configuration' }
+     
+     # Disabled Cstates on dell:
+     bios::setting {'c_states': value => 'disabled' }
 
-# Intel requires some more hand holding with turbo. You set 1/0 and expect Enabled/Disabled..
-bios::setting {'Intel(R) Turbo Boost Technology': value => '0', expect => 'Disabled', section => 'Processor Configuration' }
-
-# Set fan speed on intel:
-bios::setting {'Fan PWM Offset': value => '100', section => 'System Acoustic and Performance Configuration' }
-
-# Disabled Cstates on dell:
-bios::setting {'c_states': value => 'disabled' }
-
-```
 
 What?
 -----
@@ -55,17 +53,17 @@ itself validate your inputs. (the tool is the single point of truth)
 
 License
 -----------
-icensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+        http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 
 Contact
 -------
