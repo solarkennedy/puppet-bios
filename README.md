@@ -1,5 +1,7 @@
 Puppet-Bios 
 ----------
+[![Build Status](https://travis-ci.org/solarkennedy/puppet-bios.png)](https://travis-ci.org/solarkennedy/puppet-bios)
+
 A puppet module for configuring bios settings. 
 
 

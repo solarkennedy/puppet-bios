@@ -8,4 +8,6 @@
 #
 # Learn more about module testing here: http://docs.puppetlabs.com/guides/tests_smoke.html
 #
-include bios
+
+bios::setting {'turbo_mode': value => 'disabled' }
+
