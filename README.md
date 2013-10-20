@@ -13,6 +13,7 @@ settings. You are in luck though if you have something like:
 
 * Intel based platforms (using the syscfg tool)
 * Dell C-series Servers (using the setupbios tool)
+* More platforms with your help! Pull request me!
 
 *Important*: This module assumes you have the proper tool installed and in the
 path. This is left as an exercise to the reader. I suggest finding the tool 
@@ -29,16 +30,23 @@ over and over for each bios setting you need.
 Examples
 --------
      # Easy to set on a dell
-     bios::setting {'turbo_mode': value => 'disabled' }
+     bios::setting { 'turbo_mode': value => 'disabled' }
      
      # Intel requires some more hand holding with turbo. You set 1/0 and expect Enabled/Disabled..
-     bios::setting {'Intel(R) Turbo Boost Technology': value => '0', expect => 'Disabled', section => 'Processor Configuration' }
+     bios::setting { 'Intel(R) Turbo Boost Technology':
+       value   => '0',
+       expect  => 'Disabled',
+       section => 'Processor Configuration'
+     }
      
      # Set fan speed on intel:
-     bios::setting {'Fan PWM Offset': value => '100', section => 'System Acoustic and Performance Configuration' }
+     bios::setting { 'Fan PWM Offset':
+       value   => '100',
+       section => 'System Acoustic and Performance Configuration'
+     }
      
      # Disabled Cstates on dell:
-     bios::setting {'c_states': value => 'disabled' }
+     bios::setting { 'c_states': value => 'disabled' }
 
 
 What?
