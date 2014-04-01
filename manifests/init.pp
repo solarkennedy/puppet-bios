@@ -48,6 +48,7 @@ class bios {
         'S2600GZ': { $make='Intel' }
         default:   { fail("I don't know if ${boardproductname} on an ${boardmanufacturer} works.") }
         # End case boardproductname
+      }
     }
     'Dell Inc.','Dell': {
       case $productname {
