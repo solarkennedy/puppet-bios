@@ -1,4 +1,9 @@
-define bios::setting ($setting = $title, $value, $expect=$value, $section){
+define bios::setting (
+  $value, 
+  $setting = $title, 
+  $expect  = $value, 
+  $section = ''
+){
   include bios
   case $bios::make {
     'Intel': {
